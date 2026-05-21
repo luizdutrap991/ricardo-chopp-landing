@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ricardo Chopp | Chopp Delivery em Goiânia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --black:#090909;
+      --dark:#111111;
+      --card:#181818;
+      --text:#ffffff;
+      --muted:#cfcfcf;
+      --beer:#f5b301;
+      --red:#c91522;
+      --green:#006b2d;
+      --blue:#0867b1;
+      --whatsapp:#25D366;
+      --radius:24px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:var(--black);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    button,
+    input,
+    select,
+    textarea{
+      font-family:inherit;
+    }
+
+    .container{
+      width:92%;
+      max-width:1220px;
+      margin:0 auto;
+    }
+
+    .topbar{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:999;
+      background:rgba(0,0,0,.72);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav{
+      height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand-name{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      letter-spacing:.5px;
+    }
+
+    .brand-mark{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      object-fit:cover;
+      background:#fff;
+      border:2px solid rgba(255,255,255,.2);
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:22px;
+      font-size:14px;
+      font-weight:700;
+      color:#e8e8e8;
+    }
+
+    .nav-links a:hover{
+      color:var(--beer);
+    }
+
+    .nav-cta{
+      background:var(--whatsapp);
+      color:#fff;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:14px;
+      box-shadow:0 10px 24px rgba(37,211,102,.24);
+    }
+
+    .hero{
+      min-height:100vh;
+      padding:130px 0 80px;
+      background:
+        radial-gradient(circle at 78% 20%, rgba(245,179,1,.22), transparent 28%),
+        linear-gradient(rgba(0,0,0,.74), rgba(0,0,0,.82)),
+        url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1800&auto=format&fit=crop') center/cover;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      background:rgba(245,179,1,.12);
+      border:1px solid rgba(245,179,1,.36);
+      color:#ffd76b;
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:24px;
+      text-transform:uppercase;
+      letter-spacing:.6px;
+    }
+
+    .hero h1{
+      font-size:clamp(40px,5vw,68px);
+      line-height:1.04;
+      font-weight:900;
+      margin-bottom:22px;
+      max-width:760px;
+    }
+
+    .hero h1 span{
+      color:var(--beer);
+    }
+
+    .hero p{
+      font-size:20px;
+      line-height:1.65;
+      color:#eeeeee;
+      max-width:680px;
+      margin-bottom:28px;
+    }
+
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:34px;
+    }
+
+    .badge{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      padding:12px 16px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      align-items:center;
+    }
+
+    .btn-primary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border:0;
+      cursor:pointer;
+      background:var(--whatsapp);
+      color:#fff;
+      padding:18px 28px;
+      border-radius:14px;
+      font-size:16px;
+      font-weight:900;
+      box-shadow:0 14px 30px rgba(37,211,102,.28);
+      transition:.2s ease;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-secondary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      padding:18px 24px;
+      border-radius:14px;
+      font-size:16px;
+      font-weight:800;
+      transition:.2s ease;
+    }
+
+    .btn-secondary:hover{
+      border-color:var(--beer);
+      color:var(--beer);
+    }
+
+    .hero-card{
+      background:rgba(18,18,18,.78);
+      border:1px solid rgba(255,255,255,.11);
+      backdrop-filter:blur(12px);
+      border-radius:32px;
+      padding:34px;
+      box-shadow:0 28px 80px rgba(0,0,0,.55);
+    }
+
+    .hero-card img{
+      width:170px;
+      height:170px;
+      border-radius:50%;
+      display:block;
+      margin:0 auto 22px;
+      object-fit:cover;
+      background:#fff;
+      border:5px solid rgba(255,255,255,.14);
+    }
+
+    .hero-card h3{
+      font-size:28px;
+      text-align:center;
+      margin-bottom:12px;
+    }
+
+    .hero-card p{
+      font-size:15px;
+      text-align:center;
+      color:#d7d7d7;
+      margin-bottom:24px;
+    }
+
+    .quick-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .quick-item{
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.08);
+      padding:15px;
+      border-radius:16px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .quick-item span{
+      color:var(--beer);
+    }
+
+    .section{
+      padding:88px 0;
+    }
+
+    .section.light{
+      background:#f7f7f7;
+      color:#303030;
+    }
+
+    .section.alt{
+      background:#121212;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:48px;
+    }
+
+    .section-title h2{
+      font-size:clamp(32px,4vw,46px);
+      line-height:1.15;
+      margin-bottom:12px;
+      font-weight:900;
+    }
+
+    .section-title p{
+      color:#bfbfbf;
+      font-size:18px;
+      line-height:1.6;
+      max-width:720px;
+      margin:0 auto;
+    }
+
+    .light .section-title p{
+      color:#666;
+    }
+
+    .products-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:24px;
+    }
+
+    .product-card{
+      min-height:560px;
+      border-radius:22px;
+      padding:34px 26px 28px;
+      color:#fff;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      box-shadow:0 20px 46px rgba(0,0,0,.18);
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+    }
+
+    .product-card:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.28), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,.08), transparent 52%);
+      opacity:.9;
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    .product-card:after{
+      content:"";
+      position:absolute;
+      width:210px;
+      height:210px;
+      top:-86px;
+      right:-78px;
+      background:rgba(255,255,255,.12);
+      border-radius:50%;
+      z-index:-1;
+    }
+
+    .brahma{background:linear-gradient(160deg,#0870bd,#07599a);}
+    .amstel{background:linear-gradient(160deg,#f2b300,#e09c00);}
+    .heineken{background:linear-gradient(160deg,#087834,#005a25);}
+    .imperial{background:linear-gradient(160deg,#d61b2a,#b60f1c);}
+
+    .logo-stage{
+      width:158px;
+      height:118px;
+      background:rgba(255,255,255,.96);
+      border-radius:26px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      margin-bottom:28px;
+      box-shadow:0 18px 32px rgba(0,0,0,.20);
+    }
+
+    .brand-logo{
+      width:100%;
+      max-width:128px;
+      max-height:76px;
+      object-fit:contain;
+      display:block;
+    }
+
+    .text-logo{
+      font-size:21px;
+      line-height:1;
+      font-weight:900;
+      letter-spacing:-.5px;
+      color:#c91522;
+      text-transform:uppercase;
+      padding:9px 14px;
+      border-radius:999px;
+      border:3px solid currentColor;
+    }
+
+    .text-logo.heineken-text{
+      color:#006b2d;
+      border:0;
+      font-size:19px;
+      position:relative;
+      padding-top:22px;
+    }
+
+    .text-logo.heineken-text:before{
+      content:"★";
+      color:#d71920;
+      position:absolute;
+      top:0;
+      left:50%;
+      transform:translateX(-50%);
+      font-size:19px;
+    }
+
+    .product-card h3{
+      font-size:28px;
+      font-weight:800;
+      margin-bottom:16px;
+      letter-spacing:-.6px;
+    }
+
+    .product-desc{
+      font-size:16px;
+      line-height:1.56;
+      margin-bottom:24px;
+      min-height:100px;
+      color:rgba(255,255,255,.94);
+    }
+
+    .specs{
+      width:100%;
+      margin:auto 0 22px;
+      text-align:left;
+    }
+
+    .spec{
+      display:grid;
+      grid-template-columns:38px 1fr;
+      align-items:center;
+      gap:12px;
+      padding:13px 0;
+      border-bottom:1px solid rgba(255,255,255,.25);
+      font-weight:800;
+      line-height:1.32;
+      font-size:14px;
+    }
+
+    .spec:last-child{
+      border-bottom:0;
+    }
+
+    .spec-icon{
+      font-size:26px;
+      text-align:center;
+      filter:drop-shadow(0 5px 7px rgba(0,0,0,.18));
+    }
+
+    .want-btn{
+      width:100%;
+      border:0;
+      cursor:pointer;
+      color:#fff;
+      background:rgba(0,0,0,.24);
+      padding:16px;
+      border-radius:10px;
+      font-size:16px;
+      font-weight:900;
+      transition:.2s ease;
+    }
+
+    .want-btn:hover{
+      background:rgba(0,0,0,.42);
+      transform:translateY(-2px);
+    }
+
+    .benefits{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:22px;
+    }
+
+    .benefit{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:var(--radius);
+      padding:30px;
+      min-height:220px;
+    }
+
+    .benefit .icon{
+      font-size:40px;
+      margin-bottom:18px;
+    }
+
+    .benefit h3{
+      font-size:21px;
+      margin-bottom:12px;
+    }
+
+    .benefit p{
+      color:#cacaca;
+      line-height:1.65;
+      font-size:15px;
+    }
+
+    .calculator-wrap{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:30px;
+      align-items:start;
+    }
+
+    .form-card,
+    .result-card{
+      background:#151515;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:28px;
+      padding:34px;
+      box-shadow:0 20px 55px rgba(0,0,0,.25);
+    }
+
+    .form-card h3,
+    .result-card h3{
+      font-size:28px;
+      margin-bottom:10px;
+    }
+
+    .form-card .hint,
+    .result-card .hint{
+      color:#bdbdbd;
+      line-height:1.6;
+      margin-bottom:26px;
+      font-size:15px;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .field.full{
+      grid-column:1/-1;
+    }
+
+    label{
+      font-size:13px;
+      color:#ededed;
+      font-weight:800;
+    }
+
+    input,
+    select,
+    textarea{
+      width:100%;
+      border:1px solid rgba(255,255,255,.12);
+      background:#0d0d0d;
+      color:#fff;
+      padding:15px 14px;
+      border-radius:12px;
+      outline:none;
+      font-size:15px;
+    }
+
+    textarea{
+      min-height:92px;
+      resize:vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus{
+      border-color:var(--beer);
+    }
+
+    .calc-actions{
+      margin-top:22px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .calc-btn{
+      border:0;
+      cursor:pointer;
+      background:var(--beer);
+      color:#1b1b1b;
+      padding:16px 22px;
+      border-radius:12px;
+      font-weight:900;
+      font-size:15px;
+    }
+
+    .clear-btn{
+      border:1px solid rgba(255,255,255,.14);
+      cursor:pointer;
+      background:transparent;
+      color:#fff;
+      padding:16px 22px;
+      border-radius:12px;
+      font-weight:800;
+      font-size:15px;
+    }
+
+    .selected-product{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:rgba(245,179,1,.12);
+      border:1px solid rgba(245,179,1,.28);
+      color:#ffd76b;
+      padding:10px 12px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:13px;
+      margin-bottom:18px;
+    }
+
+    .result-main{
+      background:linear-gradient(135deg, rgba(245,179,1,.16), rgba(255,255,255,.04));
+      border:1px solid rgba(245,179,1,.26);
+      padding:22px;
+      border-radius:20px;
+      margin-bottom:18px;
+    }
+
+    .result-liters{
+      font-size:46px;
+      font-weight:900;
+      color:var(--beer);
+      line-height:1;
+      margin-bottom:8px;
+    }
+
+    .result-label{
+      color:#ededed;
+      line-height:1.5;
+      font-weight:700;
+    }
+
+    .recommendation{
+      display:grid;
+      gap:10px;
+      margin-bottom:18px;
+    }
+
+    .recommendation-item{
+      background:#0d0d0d;
+      border:1px solid rgba(255,255,255,.09);
+      padding:14px;
+      border-radius:14px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      font-size:14px;
+      line-height:1.45;
+    }
+
+    .recommendation-item strong{
+      color:#fff;
+    }
+
+    .recommendation-item span{
+      color:#ffd76b;
+      font-weight:900;
+      text-align:right;
+    }
+
+    .whatsapp-message{
+      background:#0d0d0d;
+      border:1px solid rgba(255,255,255,.09);
+      color:#dcdcdc;
+      border-radius:16px;
+      padding:16px;
+      min-height:140px;
+      font-size:14px;
+      line-height:1.6;
+      white-space:pre-wrap;
+      margin-bottom:18px;
+    }
+
+    .send-whatsapp{
+      width:100%;
+      border:0;
+      cursor:pointer;
+      background:var(--whatsapp);
+      color:#fff;
+      padding:18px;
+      border-radius:14px;
+      font-weight:900;
+      font-size:16px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      align-items:center;
+    }
+
+    .small-note{
+      color:#9d9d9d;
+      font-size:12px;
+      line-height:1.55;
+      margin-top:14px;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:22px;
+    }
+
+    .step{
+      background:#181818;
+      padding:30px;
+      border-radius:22px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,.07);
+    }
+
+    .step-number{
+      width:56px;
+      height:56px;
+      background:var(--red);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      font-size:22px;
+      margin:0 auto 18px;
+    }
+
+    .step h3{
+      font-size:20px;
+      margin-bottom:10px;
+    }
+
+    .step p{
+      color:#cfcfcf;
+      line-height:1.6;
+      font-size:14px;
+    }
+
+    .final-cta{
+      background:
+        linear-gradient(rgba(0,0,0,.76), rgba(0,0,0,.82)),
+        url('https://images.unsplash.com/photo-1495195134817-aeb325a55b65?q=80&w=1800&auto=format&fit=crop') center/cover;
+      text-align:center;
+      padding:105px 0;
+    }
+
+    .final-cta h2{
+      font-size:clamp(34px,4vw,54px);
+      line-height:1.12;
+      margin-bottom:16px;
+      font-weight:900;
+    }
+
+    .final-cta p{
+      color:#ddd;
+      font-size:19px;
+      margin-bottom:28px;
+      line-height:1.6;
+    }
+
+    footer{
+      background:#070707;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:#aaa;
+      padding:38px 0;
+      text-align:center;
+      font-size:14px;
+      line-height:1.8;
+    }
+
+    .floating-whatsapp{
+      position:fixed;
+      bottom:22px;
+      right:22px;
+      width:66px;
+      height:66px;
+      background:var(--whatsapp);
+      color:#fff;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:31px;
+      z-index:999;
+      box-shadow:0 12px 28px rgba(37,211,102,.38);
+    }
+
+    @media(max-width:1040px){
+      .hero-grid,
+      .calculator-wrap{
+        grid-template-columns:1fr;
+      }
+
+      .products-grid,
+      .benefits,
+      .steps{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .nav-links{
+        display:none;
+      }
+    }
+
+    @media(max-width:680px){
+      .hero{
+        padding-top:116px;
+      }
+
+      .products-grid,
+      .benefits,
+      .steps,
+      .form-grid{
+        grid-template-columns:1fr;
+      }
+
+      .product-card{
+        min-height:auto;
+      }
+
+      .product-desc{
+        min-height:auto;
+      }
+
+      .form-card,
+      .result-card{
+        padding:24px;
+      }
+
+      .topbar .container{
+        width:94%;
+      }
+
+      .brand-name strong{
+        font-size:14px;
+      }
+
+      .nav-cta{
+        padding:10px 12px;
+        font-size:12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#inicio" class="brand-name">
+        <img src="logo-ricardo-chopp.jpeg" alt="Logo Ricardo Chopp" class="brand-mark" onerror="this.style.display='none'">
+        <strong>RICARDO CHOPP</strong>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#produtos">Produtos</a>
+        <a href="#calculadora">Calculadora</a>
+        <a href="#como-funciona">Como funciona</a>
+      </nav>
+
+      <a href="#calculadora" class="nav-cta">Pedir orçamento</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">🍺 Chopp delivery em Goiânia</div>
+
+          <h1>Chopp gelado para sua festa com <span>chopeira instalada</span>.</h1>
+
+          <p>
+            Barris de 30L e 50L das marcas Brahma, Heineken, Imperial e Amstel.
+            A Ricardo Chopp entrega, instala a chopeira elétrica regulada e ainda envia copos de cortesia para seu evento.
+          </p>
+
+          <div class="badges">
+            <div class="badge">✅ Desde 2008</div>
+            <div class="badge">🚚 Entrega rápida</div>
+            <div class="badge">🍺 Chopeira inclusa</div>
+            <div class="badge">🥤 Copos de cortesia</div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#calculadora" class="btn-primary">Calcular meu evento</a>
+            <a href="#produtos" class="btn-secondary">Ver marcas disponíveis</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <img src="logo-ricardo-chopp.jpeg" alt="Ricardo Chopp" onerror="this.style.display='none'">
+          <h3>Tradição desde 2008</h3>
+          <p>
+            Atendimento para churrascos, aniversários, confraternizações, casamentos e eventos corporativos.
+          </p>
+
+          <div class="quick-list">
+            <div class="quick-item">Barris disponíveis <span>30L e 50L</span></div>
+            <div class="quick-item">Serviço incluso <span>Instalação</span></div>
+            <div class="quick-item">Pedido rápido <span>WhatsApp</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section light" id="produtos">
+      <div class="container">
+        <div class="section-title">
+          <h2>Principais produtos</h2>
+          <p>Escolha a marca de chopp ideal para seu evento. Ao clicar em “Eu quero”, você será direcionado para a calculadora.</p>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card brahma">
+            <div class="logo-stage">
+              <div class="text-logo">Brahma</div>
+            </div>
+            <h3>Chopp Brahma</h3>
+            <p class="product-desc">Clássico, leve e refrescante. Uma opção tradicional para churrascos, festas e momentos de descontração.</p>
+            <div class="specs">
+              <div class="spec"><div class="spec-icon">🍺</div><div>Teor alcoólico 4,8%</div></div>
+              <div class="spec"><div class="spec-icon">🌿</div><div>Amargor leve IBU 10</div></div>
+              <div class="spec"><div class="spec-icon">🎉</div><div>Ideal para festas populares e churrascos</div></div>
+            </div>
+            <button class="want-btn" data-product="Chopp Brahma">Eu quero</button>
+          </article>
+
+          <article class="product-card amstel">
+            <div class="logo-stage">
+              <div class="text-logo">Amstel</div>
+            </div>
+            <h3>Chopp Amstel</h3>
+            <p class="product-desc">Puro malte, sabor leve e refrescante. Boa escolha para quem busca equilíbrio entre qualidade e custo-benefício.</p>
+            <div class="specs">
+              <div class="spec"><div class="spec-icon">🍺</div><div>Teor alcoólico 4,6%</div></div>
+              <div class="spec"><div class="spec-icon">🌿</div><div>Amargor leve IBU 11</div></div>
+              <div class="spec"><div class="spec-icon">💰</div><div>Ótimo custo-benefício para eventos</div></div>
+            </div>
+            <button class="want-btn" data-product="Chopp Amstel">Eu quero</button>
+          </article>
+
+          <article class="product-card heineken">
+            <div class="logo-stage">
+              <div class="text-logo heineken-text">Heineken</div>
+            </div>
+            <h3>Chopp Heineken</h3>
+            <p class="product-desc">Premium, marcante e reconhecido. Ideal para transformar qualquer ocasião em uma celebração memorável.</p>
+            <div class="specs">
+              <div class="spec"><div class="spec-icon">🍺</div><div>Teor alcoólico 5%</div></div>
+              <div class="spec"><div class="spec-icon">🌿</div><div>Amargor equilibrado IBU 19</div></div>
+              <div class="spec"><div class="spec-icon">⭐</div><div>Escolha premium para eventos especiais</div></div>
+            </div>
+            <button class="want-btn" data-product="Chopp Heineken">Eu quero</button>
+          </article>
+
+          <article class="product-card imperial">
+            <div class="logo-stage">
+              <div class="text-logo">Imperial</div>
+            </div>
+            <h3>Chopp Imperial</h3>
+            <p class="product-desc">Lager puro malte, limpa e refrescante, com perfil leve e agradável para diferentes tipos de evento.</p>
+            <div class="specs">
+              <div class="spec"><div class="spec-icon">🍺</div><div>Teor alcoólico 5%</div></div>
+              <div class="spec"><div class="spec-icon">🌿</div><div>Amargor equilibrado IBU 18</div></div>
+              <div class="spec"><div class="spec-icon">🥂</div><div>Boa opção para confraternizações</div></div>
+            </div>
+            <button class="want-btn" data-product="Chopp Imperial">Eu quero</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="calculadora">
+      <div class="container">
+        <div class="section-title">
+          <h2>Calcule o chopp ideal para seu evento</h2>
+          <p>Preencha os dados abaixo para gerar uma prévia de consumo e enviar o pedido de orçamento direto pelo WhatsApp.</p>
+        </div>
+
+        <div class="calculator-wrap">
+          <div class="form-card">
+            <div class="selected-product" id="selectedProductBadge">🍺 Produto selecionado: ainda não informado</div>
+            <h3>Dados do evento</h3>
+            <p class="hint">A estimativa considera quantidade de pessoas, horário e tipo de festa. O orçamento final será confirmado no atendimento.</p>
+
+            <form id="calcForm">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="product">Marca desejada</label>
+                  <select id="product" required>
+                    <option value="">Selecione</option>
+                    <option>Chopp Brahma</option>
+                    <option>Chopp Heineken</option>
+                    <option>Chopp Imperial</option>
+                    <option>Chopp Amstel</option>
+                    <option>Ainda quero decidir</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="people">Quantidade de pessoas</label>
+                  <input type="number" id="people" min="1" placeholder="Ex.: 100" required>
+                </div>
+
+                <div class="field">
+                  <label for="date">Data do evento</label>
+                  <input type="date" id="date" required>
+                </div>
+
+                <div class="field">
+                  <label for="time">Horário de início</label>
+                  <input type="time" id="time" required>
+                </div>
+
+                <div class="field">
+                  <label for="duration">Duração prevista</label>
+                  <select id="duration" required>
+                    <option value="3">Até 3 horas</option>
+                    <option value="4" selected>4 horas</option>
+                    <option value="5">5 horas</option>
+                    <option value="6">6 horas ou mais</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="eventType">Tipo de festa</label>
+                  <select id="eventType" required>
+                    <option value="Confraternização da empresa">Confraternização da empresa</option>
+                    <option value="Churrasco">Churrasco</option>
+                    <option value="Aniversário">Aniversário</option>
+                    <option value="Casamento">Casamento</option>
+                    <option value="Evento corporativo">Evento corporativo</option>
+                    <option value="Festa familiar">Festa familiar</option>
+                    <option value="Outro">Outro</option>
+                  </select>
+                </div>
+
+                <div class="field full">
+                  <label for="location">Local do evento</label>
+                  <input type="text" id="location" placeholder="Ex.: Setor Bueno, Goiânia - GO" required>
+                </div>
+
+                <div class="field full">
+                  <label for="notes">Observações</label>
+                  <textarea id="notes" placeholder="Ex.: preciso de copos, evento em salão, preferência de marca, entrega no período da manhã..."></textarea>
+                </div>
+              </div>
+
+              <div class="calc-actions">
+                <button type="submit" class="calc-btn">Calcular consumo</button>
+                <button type="button" class="clear-btn" id="clearBtn">Limpar dados</button>
+              </div>
+            </form>
+          </div>
+
+          <aside class="result-card">
+            <h3>Prévia do orçamento</h3>
+            <p class="hint">Após calcular, confira a recomendação e envie tudo compilado para o WhatsApp.</p>
+
+            <div class="result-main">
+              <div class="result-liters" id="litersResult">-- L</div>
+              <div class="result-label" id="consumptionText">Informe os dados do evento para calcular a quantidade estimada.</div>
+            </div>
+
+            <div class="recommendation" id="recommendationBox">
+              <div class="recommendation-item"><strong>Barris sugeridos</strong><span>--</span></div>
+              <div class="recommendation-item"><strong>Volume total</strong><span>--</span></div>
+              <div class="recommendation-item"><strong>Sobra técnica estimada</strong><span>--</span></div>
+            </div>
+
+            <div class="whatsapp-message" id="whatsappPreview">A mensagem para o WhatsApp aparecerá aqui após o cálculo.</div>
+
+            <button class="send-whatsapp" id="sendWhatsapp" type="button">🟢 Enviar orçamento pelo WhatsApp</button>
+
+            <p class="small-note">
+              Observação: essa calculadora é uma estimativa comercial. Consumo real pode variar conforme perfil dos convidados, duração, clima, disponibilidade de outras bebidas e dinâmica do evento.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="diferenciais">
+      <div class="container">
+        <div class="section-title">
+          <h2>Por que escolher a Ricardo Chopp?</h2>
+          <p>Uma operação pensada para facilitar a sua festa do começo ao fim.</p>
+        </div>
+
+        <div class="benefits">
+          <div class="benefit"><div class="icon">🍺</div><h3>Chopeira regulada</h3><p>Equipamento instalado e ajustado para servir o chopp na temperatura e pressão corretas.</p></div>
+          <div class="benefit"><div class="icon">🚚</div><h3>Entrega rápida</h3><p>Atendimento para Goiânia e região, com foco em pontualidade e praticidade.</p></div>
+          <div class="benefit"><div class="icon">🥤</div><h3>Copos de cortesia</h3><p>Mais comodidade para o evento, reduzindo preocupação com itens básicos.</p></div>
+          <div class="benefit"><div class="icon">🎉</div><h3>Eventos diversos</h3><p>Churrascos, aniversários, casamentos, confraternizações e empresas.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="como-funciona">
+      <div class="container">
+        <div class="section-title">
+          <h2>Como funciona?</h2>
+          <p>O processo é simples: você escolhe, calcula e chama no WhatsApp.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step"><div class="step-number">1</div><h3>Escolha a marca</h3><p>Brahma, Heineken, Imperial ou Amstel.</p></div>
+          <div class="step"><div class="step-number">2</div><h3>Calcule o evento</h3><p>Informe pessoas, data, horário, duração e local.</p></div>
+          <div class="step"><div class="step-number">3</div><h3>Envie no WhatsApp</h3><p>Os dados já chegam organizados para orçamento.</p></div>
+          <div class="step"><div class="step-number">4</div><h3>Receba instalado</h3><p>A equipe entrega, instala e regula a chopeira.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <h2>Vai fazer churrasco, aniversário ou evento?</h2>
+        <p>Faça uma prévia agora e solicite o orçamento pelo WhatsApp.</p>
+        <a href="#calculadora" class="btn-primary">Calcular meu evento</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Ricardo Chopp</strong> © 2026 • Goiânia - GO<br>
+    Chopp delivery com barris de 30L e 50L, chopeira instalada e copos de cortesia.<br>
+    WhatsApp: (62) 99288-2506
+  </footer>
+
+  <a href="https://wa.me/5562992882506" class="floating-whatsapp" aria-label="WhatsApp">☘</a>
+
+  <script>
+    const WHATSAPP_NUMBER = '5562992882506';
+
+    const productSelect = document.getElementById('product');
+    const selectedProductBadge = document.getElementById('selectedProductBadge');
+    const form = document.getElementById('calcForm');
+    const clearBtn = document.getElementById('clearBtn');
+    const sendWhatsapp = document.getElementById('sendWhatsapp');
+
+    const litersResult = document.getElementById('litersResult');
+    const consumptionText = document.getElementById('consumptionText');
+    const recommendationBox = document.getElementById('recommendationBox');
+    const whatsappPreview = document.getElementById('whatsappPreview');
+
+    let lastWhatsappMessage = '';
+
+    document.querySelectorAll('.want-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const product = button.getAttribute('data-product');
+        productSelect.value = product;
+        updateSelectedProduct(product);
+        document.getElementById('calculadora').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    productSelect.addEventListener('change', () => updateSelectedProduct(productSelect.value));
+
+    function updateSelectedProduct(product){
+      selectedProductBadge.textContent = product ? `🍺 Produto selecionado: ${product}` : '🍺 Produto selecionado: ainda não informado';
+    }
+
+    function getEventMultiplier(eventType){
+      const multipliers = {
+        'Confraternização da empresa': 1.05,
+        'Churrasco': 1.15,
+        'Aniversário': 1.00,
+        'Casamento': 0.90,
+        'Evento corporativo': 0.85,
+        'Festa familiar': 0.95,
+        'Outro': 1.00
+      };
+
+      return multipliers[eventType] || 1;
+    }
+
+    function getTimeMultiplier(time){
+      if(!time) return 1;
+      const hour = Number(time.split(':')[0]);
+
+      if(hour >= 11 && hour <= 15) return 1.15;
+      if(hour >= 16 && hour <= 20) return 1.05;
+      if(hour >= 21 || hour <= 2) return 0.95;
+
+      return 1;
+    }
+
+    function calculateLiters(people, duration, eventType, time){
+      const baseLitersPerPerson = 1.2;
+      const durationMultiplier = 0.70 + (Number(duration) * 0.075);
+      const raw = people * baseLitersPerPerson * durationMultiplier * getEventMultiplier(eventType) * getTimeMultiplier(time);
+      return Math.ceil(raw);
+    }
+
+    function getBestKegCombination(requiredLiters){
+      let best = null;
+
+      for(let keg50 = 0; keg50 <= 20; keg50++){
+        for(let keg30 = 0; keg30 <= 20; keg30++){
+          const total = (keg50 * 50) + (keg30 * 30);
+          if(total < requiredLiters || total === 0) continue;
+
+          const leftover = total - requiredLiters;
+          const totalKegs = keg50 + keg30;
+          const candidate = { keg50, keg30, total, leftover, totalKegs };
+
+          if(!best){
+            best = candidate;
+            continue;
+          }
+
+          if(
+            candidate.leftover < best.leftover ||
+            (candidate.leftover === best.leftover && candidate.totalKegs < best.totalKegs) ||
+            (candidate.leftover === best.leftover && candidate.totalKegs === best.totalKegs && candidate.keg50 > best.keg50)
+          ){
+            best = candidate;
+          }
+        }
+      }
+
+      return best || { keg50:0, keg30:1, total:30, leftover: Math.max(0, 30 - requiredLiters), totalKegs:1 };
+    }
+
+    function formatDateBR(dateValue){
+      if(!dateValue) return '';
+      const [year, month, day] = dateValue.split('-');
+      return `${day}/${month}/${year}`;
+    }
+
+    function getWeekdayBR(dateValue){
+      if(!dateValue) return '';
+      const date = new Date(dateValue + 'T00:00:00');
+      return date.toLocaleDateString('pt-BR', { weekday:'long' });
+    }
+
+    function buildKegText(combo){
+      const parts = [];
+      if(combo.keg50 > 0) parts.push(`${combo.keg50} barril${combo.keg50 > 1 ? 'is' : ''} de 50L`);
+      if(combo.keg30 > 0) parts.push(`${combo.keg30} barril${combo.keg30 > 1 ? 'is' : ''} de 30L`);
+      return parts.join(' + ');
+    }
+
+    function getFormData(){
+      return {
+        product: productSelect.value,
+        people: Number(document.getElementById('people').value),
+        date: document.getElementById('date').value,
+        time: document.getElementById('time').value,
+        duration: document.getElementById('duration').value,
+        eventType: document.getElementById('eventType').value,
+        location: document.getElementById('location').value.trim(),
+        notes: document.getElementById('notes').value.trim()
+      };
+    }
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+
+      const data = getFormData();
+      const requiredLiters = calculateLiters(data.people, data.duration, data.eventType, data.time);
+      const combo = getBestKegCombination(requiredLiters);
+      const kegText = buildKegText(combo);
+      const weekday = getWeekdayBR(data.date);
+
+      litersResult.textContent = `${requiredLiters} L`;
+      consumptionText.textContent = `Estimativa mínima para ${data.people} pessoas, considerando ${data.duration} horas de evento.`;
+
+      recommendationBox.innerHTML = `
+        <div class="recommendation-item"><strong>Barris sugeridos</strong><span>${kegText}</span></div>
+        <div class="recommendation-item"><strong>Volume total</strong><span>${combo.total} litros</span></div>
+        <div class="recommendation-item"><strong>Sobra técnica estimada</strong><span>${combo.leftover} litros</span></div>
+      `;
+
+      lastWhatsappMessage = `Olá, Ricardo Chopp! Gostaria de solicitar um orçamento.\n\n` +
+        `Produto desejado: ${data.product}\n` +
+        `Festa para: ${data.people} pessoas\n` +
+        `Data: ${formatDateBR(data.date)} (${weekday})\n` +
+        `Horário: ${data.time}\n` +
+        `Duração prevista: ${data.duration} horas\n` +
+        `Tipo de festa: ${data.eventType}\n` +
+        `Local do evento: ${data.location}\n\n` +
+        `Prévia calculada pelo site:\n` +
+        `Consumo estimado: ${requiredLiters} litros\n` +
+        `Sugestão: ${kegText}\n` +
+        `Volume total sugerido: ${combo.total} litros\n` +
+        `Sobra técnica estimada: ${combo.leftover} litros\n\n` +
+        `Observações: ${data.notes || 'Sem observações adicionais.'}\n\n` +
+        `Pode me passar valores e disponibilidade?`;
+
+      whatsappPreview.textContent = lastWhatsappMessage;
+    });
+
+    sendWhatsapp.addEventListener('click', () => {
+      if(!lastWhatsappMessage){
+        alert('Preencha os dados e clique em “Calcular consumo” antes de enviar.');
+        return;
+      }
+
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lastWhatsappMessage)}`;
+      window.open(url, '_blank');
+    });
+
+    clearBtn.addEventListener('click', () => {
+      form.reset();
+      updateSelectedProduct('');
+      litersResult.textContent = '-- L';
+      consumptionText.textContent = 'Informe os dados do evento para calcular a quantidade estimada.';
+      recommendationBox.innerHTML = `
+        <div class="recommendation-item"><strong>Barris sugeridos</strong><span>--</span></div>
+        <div class="recommendation-item"><strong>Volume total</strong><span>--</span></div>
+        <div class="recommendation-item"><strong>Sobra técnica estimada</strong><span>--</span></div>
+      `;
+      whatsappPreview.textContent = 'A mensagem para o WhatsApp aparecerá aqui após o cálculo.';
+      lastWhatsappMessage = '';
+    });
+  </script>
+</body>
+</html>
